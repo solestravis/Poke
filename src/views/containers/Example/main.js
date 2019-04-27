@@ -29,7 +29,7 @@ class Example extends Component {
         event.preventDefault();
         const form = event.target;
         const { loadPokemonInfo } = this.props;
-        const name = form.pokeName.value;
+        const name = form.pokeName.value.toLowerCase();
         form.reset();
         loadPokemonInfo(name);
     }
