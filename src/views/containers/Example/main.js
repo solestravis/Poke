@@ -1,5 +1,5 @@
 import { Container } from '../../components/Container';
-import Input from '../../components/Input';
+import InputForm from '../../components/InputForm';
 import { Layout } from '../../components/Layout';
 import List from '../../components/List';
 import ListDetail from '../../components/ListDetail';
@@ -27,6 +27,7 @@ class Example extends Component {
 
     _handleSubmit = event => {
         event.preventDefault();
+        console.log(event.target);
         const form = event.target;
         const { loadPokemonInfo } = this.props;
         const name = form.pokeName.value.toLowerCase();
@@ -54,33 +55,32 @@ class Example extends Component {
         return (
             <Layout>
                 <Container>
-                    <form name="pokemonForm" onSubmit={ this._handleSubmit }>
-                        <label htmlFor="pokeName">Pokemon Name </label>
-                        <Input
-                            name="pokeName"
-                            type="text"
-                        />
-                        <button type="submit">Search</button>
-                    </form>
+                    <InputForm
+                        labelText="Pokemon Name"
+                        name="pokeName"
+                        onSubmit={ this._handleSubmit }
+                    />
                     {
                         error === '404' &&
                         <p>Pokemon not found!</p>
+                        
                     }
                     {
                         pokeInfo.name &&
-                        <div>
-                            <Result>
+                        <List>
+                            <ListDetail>
                                 <img src={ pokeInfo.url } />
                                 { pokeInfo.name }
-                            </Result>
-                            <button onClick={ this._handleClick }>CATCH!</button>
-                        </div>
+                                <button onClick={ this._handleClick }>CATCH!</button>
+                            </ListDetail>
+                        </List>
                     }
                     {
                         pokeList.length ?
                             <List>
+                                <h2>Caught Pokemons:</h2>
                                 { pokeList.map(poke => (
-                                    <ListDetail key={ poke.name }>
+                                    <ListDetail key={ poke.id }>
                                         <img
                                             alt={ poke.name }
                                             src={ poke.url }
