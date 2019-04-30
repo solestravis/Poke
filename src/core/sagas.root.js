@@ -1,5 +1,5 @@
 import { LOAD_POKE } from './types';
-import { callPokeAPI } from './Example/sagas';
+import { callPokeAPI } from './Poke/sagas';
 import { takeEvery } from 'redux-saga/effects';
 
 function* rootSagas () {

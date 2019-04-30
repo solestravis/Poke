@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { exampleReducer } from './Example/reducer';
+import { pokeReducer } from './Poke/reducer';
 import { routerReducer } from 'react-router-redux';
 
 export default function rootReducer () {
     return combineReducers({
-        example: exampleReducer,
+        poke: pokeReducer,
         router: routerReducer
     });
 }

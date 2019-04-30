@@ -1,8 +1,8 @@
-import Example from 'views/containers/Example';
+import Poke from 'views/containers/Poke';
 
 export default [
     {
-        component: Example,
+        component: Poke,
         path: '/'
     }
 ];
