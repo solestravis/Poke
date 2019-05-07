@@ -5,10 +5,13 @@ import { pokemonNotFound, setPokemon } from './action';
 
 export function* callPokeAPI ({ payload: pokeName }) {
     try {
-        const data = yield call(getPoke, pokeName);
-        yield put(setPokemon(data));
+        if (pokeName.length) {
+            const data = yield call(getPoke, pokeName);
+            yield put(setPokemon(data));
+        } else {
+            throw new Error();
+        }
     } catch (e) {
-        console.log(e);
         yield put(pokemonNotFound('Pokemon not found!'));
     }
 }

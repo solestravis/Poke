@@ -1,8 +1,9 @@
-import { Container } from '../../components/Container';
-import Input from '../../components/Input';
-import { Layout } from '../../components/Layout';
+import Alert from './components/Alert';
+import { Container } from 'views/components/Container';
+import Input from 'views/components/Input';
+import { Layout } from 'views/components/Layout';
+import List from './components/List';
 import React, { Component } from 'react';
-import { ShowAlert, ShowList } from './components';
 import { array, func, string } from 'prop-types';
 
 class Poke extends Component {
@@ -31,13 +32,12 @@ class Poke extends Component {
                         type="text"
                         onKeyPress={ this._handleSubmit }
                     />
-                    <ShowAlert error={ error } />
-                    <ShowList pokeCatch={ pokeCatch } />
+                    <Alert color="red" error={ error } />
+                    <List pokeCatch={ pokeCatch } />
                 </Container>
             </Layout>
         );
     }
-
 }
 
 export default Poke;
