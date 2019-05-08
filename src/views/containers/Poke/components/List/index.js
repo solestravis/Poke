@@ -1,4 +1,5 @@
 import Alert from 'views/components/Alert';
+import { Animated } from 'react-animated-css';
 import ListComponent from 'views/components/List';
 import ListDetailComponent from 'views/components/ListDetail';
 import React from 'react';

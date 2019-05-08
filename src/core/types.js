@@ -1,3 +1,5 @@
+export const CLEAR_ERR = 'POKE@CLEAR_ERR';
+
 export const ERR_MSG = 'POKE@ERR_MSG';
 
 export const FIND_RESULTS = 'POKE@FIND_RESULTS';

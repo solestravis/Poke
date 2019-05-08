@@ -3,7 +3,7 @@ import Poke from './main';
 import { connect } from 'react-redux';
 
 import { catchSelector, errorSelector, resultSelector } from 'core/Poke/selector';
-import { findResults, loadPokemonInfo } from 'core/Poke/action';
+import { clearError, findResults, loadPokemonInfo } from 'core/Poke/action';
 
 function mapStateToProps (state) {
     return {
@@ -13,5 +13,5 @@ function mapStateToProps (state) {
     };
 }
 
-const mapDispatchToProps = { findResults, loadPokemonInfo };
+const mapDispatchToProps = { clearError, findResults, loadPokemonInfo };
 export default connect(mapStateToProps, mapDispatchToProps)(Poke);

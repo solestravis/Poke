@@ -1,4 +1,4 @@
-import { ERR_MSG, FIND_RESULTS, SET_POKE } from '../types';
+import { CLEAR_ERR, ERR_MSG, FIND_RESULTS, SET_POKE } from '../types';
 
 const defaultState = () => ({
     error: '',
@@ -8,6 +8,11 @@ const defaultState = () => ({
 
 export function pokeReducer (state = defaultState(), { type, payload }) {
     switch (type) {
+    case CLEAR_ERR:
+        return {
+            ...state,
+            error: ''
+        };
     case FIND_RESULTS:
         return {
             ...state,

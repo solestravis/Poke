@@ -1,4 +1,10 @@
-import { ERR_MSG, FIND_RESULTS, LOAD_POKE, SET_POKE } from '../types';
+import { CLEAR_ERR, ERR_MSG, FIND_RESULTS, LOAD_POKE, SET_POKE } from '../types';
+
+export function clearError () {
+    return {
+        type: CLEAR_ERR
+    };
+}
 
 export function findResults (payload) {
     return {
