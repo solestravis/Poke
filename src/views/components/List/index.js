@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyledList } from './styled';
-import { object } from 'prop-types';
+import { array } from 'prop-types';
 
 const List = ({  children, ...props }) => (
     <StyledList { ...props }>{ children }</StyledList>
 );
 
 List.propTypes = {
-    children: object
+    children: array
 };
 
 export default List;

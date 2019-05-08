@@ -1,4 +1,11 @@
-import { ERR_MSG, LOAD_POKE, SET_POKE } from '../types';
+import { ERR_MSG, FIND_RESULTS, LOAD_POKE, SET_POKE } from '../types';
+
+export function findResults (payload) {
+    return {
+        payload,
+        type: FIND_RESULTS
+    };
+}
 
 export function loadPokemonInfo (payload) {
     return {

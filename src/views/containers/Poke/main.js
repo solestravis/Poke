@@ -2,7 +2,8 @@ import Alert from './components/Alert';
 import { Container } from 'views/components/Container';
 import Input from 'views/components/Input';
 import { Layout } from 'views/components/Layout';
-import List from './components/List';
+import Results from './components/Results';
+import SearchInput from './components/SearchInput';
 import React, { Component } from 'react';
 import { array, func, string } from 'prop-types';
 
@@ -10,8 +11,10 @@ class Poke extends Component {
 
     static propTypes = {
         error: string,
+        findResults: func,
         loadPokemonInfo: func,
-        pokeCatch: array
+        pokeCatch: array,
+        results: array
     }
 
     _handleSubmit = event => {
@@ -23,17 +26,33 @@ class Poke extends Component {
         }
     }
 
+    _handleChange = event => {
+        const { findResults } = this.props;
+        const search = event.target.value;
+        findResults(search);
+    }
+
     render () {
-        const { error, pokeCatch } = this.props;
+        const { error, pokeCatch, results } = this.props;
         return (
             <Layout>
                 <Container>
                     <Input
+                        placeholder="Pokemon Name"
                         type="text"
                         onKeyPress={ this._handleSubmit }
                     />
                     <Alert color="red" error={ error } />
-                    <List pokeCatch={ pokeCatch } />
+                    <Results
+                        pokeCatch={ pokeCatch }
+                        results={ results }
+                    />
+                    <SearchInput
+                        placeholder="Search Caught Pokemons"
+                        pokeCatch={ pokeCatch }
+                        type="text"
+                        onChange={ this._handleChange }
+                    />
                 </Container>
             </Layout>
         );

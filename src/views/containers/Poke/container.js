@@ -2,15 +2,16 @@ import Poke from './main';
 
 import { connect } from 'react-redux';
 
-import { loadPokemonInfo } from 'core/Poke/action';
-import { catchSelector, errorSelector } from 'core/Poke/selector';
+import { catchSelector, errorSelector, resultSelector } from 'core/Poke/selector';
+import { findResults, loadPokemonInfo } from 'core/Poke/action';
 
 function mapStateToProps (state) {
     return {
         error: errorSelector(state),
-        pokeCatch: catchSelector(state)
+        pokeCatch: catchSelector(state),
+        results: resultSelector(state)
     };
 }
 
-const mapDispatchToProps = { loadPokemonInfo };
+const mapDispatchToProps = { findResults, loadPokemonInfo };
 export default connect(mapStateToProps, mapDispatchToProps)(Poke);
