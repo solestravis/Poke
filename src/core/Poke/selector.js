@@ -12,12 +12,10 @@ export const errorSelector = createSelector(
 
 export const catchSelector = createSelector(
     catchPoke,
-    catchPoke => catchPoke ?
+    catchPoke =>
         catchPoke.map(
             ({ id, name, sprites: { front_default: url } }) =>
                 ({ id, name, url }))
-        :
-        []
 );
 
 export const resultSelector = createSelector(
