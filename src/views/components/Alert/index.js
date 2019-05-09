@@ -2,13 +2,12 @@ import React from 'react';
 import { StyledAlert } from './styled';
 import { string } from 'prop-types';
 
-const Alert = ({ children, error, ...props }) => (
+const Alert = ({ children, ...props }) => (
     <StyledAlert { ...props }>{ children }</StyledAlert>
 );
 
 Alert.propTypes = {
-    children: string,
-    error: string
+    children: string
 };
 
 export default Alert;

@@ -2,8 +2,8 @@ import Alert from 'views/components/Alert';
 import { Animated } from 'react-animated-css';
 import ListComponent from 'views/components/List';
 import ListDetailComponent from 'views/components/ListDetail';
-import React from 'react';
 import { array } from 'prop-types';
+import React, { Fragment } from 'react';
 
 const List = ({ pokeCatch }) => (
     pokeCatch.length ?
@@ -12,10 +12,12 @@ const List = ({ pokeCatch }) => (
             {
                 pokeCatch.map(poke => (
                     <ListDetailComponent key={ poke.id }>
-                        <img
-                            alt={ poke.name }
-                            src={ poke.url }
-                        />{ poke.id } { poke.name }
+                        <Fragment>
+                            <img
+                                alt={ poke.name }
+                                src={ poke.url }
+                            />{ poke.id } { poke.name }
+                        </Fragment>
                     </ListDetailComponent>
                 ))
             }

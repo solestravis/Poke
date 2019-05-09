@@ -11,4 +11,6 @@ const Input = ({  ...props }) => (
     </Animated>
 );
 
+Input.displayName = 'Input';
+
 export default Input;

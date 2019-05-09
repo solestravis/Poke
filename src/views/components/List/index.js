@@ -10,4 +10,6 @@ List.propTypes = {
     children: array
 };
 
+List.displayName = 'List';
+
 export default List;
