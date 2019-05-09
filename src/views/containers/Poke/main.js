@@ -1,5 +1,4 @@
 import Alert from './components/Alert';
-import { Animated } from 'react-animated-css';
 import { Container } from 'views/components/Container';
 import Input from 'views/components/Input';
 import { Layout } from 'views/components/Layout';
