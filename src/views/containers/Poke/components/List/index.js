@@ -21,7 +21,12 @@ const List = ({ pokeCatch }) => (
             }
         </ListComponent>
         :
-        <Alert color="lightgray">No pokemons caught yet!</Alert>
+        <Animated
+            animationIn="slideInRight"
+            animationInDuration={ 400 }
+        >
+            <Alert color="lightgray">No pokemons caught yet!</Alert>
+        </Animated>
 );
 
 List.propTypes = {

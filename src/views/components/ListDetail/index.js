@@ -5,9 +5,10 @@ import { array } from 'prop-types';
 
 const ListDetail = ({ children, ...props }) => (
     <Animated
-        animationIn="slideInLeft"
+        animationIn="slideInRight"
         animationInDuration={ 400 }
-        animationOut="fadeOut"
+        animationOut="slideOutRight"
+        isVisible={ children }
     >
         <StyledListDetail { ...props }>{ children }</StyledListDetail>
     </Animated>

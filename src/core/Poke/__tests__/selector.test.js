@@ -1,4 +1,3 @@
-import { SET_POKE } from 'core/types';
 import { pokeReducer } from '../reducer';
 import { catchSelector, errorSelector, resultSelector } from '../selector';
 
