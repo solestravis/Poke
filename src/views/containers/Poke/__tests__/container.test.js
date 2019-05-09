@@ -1,4 +1,3 @@
-import { CLEAR_ERR } from 'core/types';
 import Poke from '../container';
 import React from 'react';
 import { Record } from 'immutable';
@@ -11,7 +10,9 @@ import { clearError, findResults, loadPokemonInfo, pokemonNotFound, setPokemon }
 
 // SELECTORS:
 jest.mock('core/Poke/selector', () => ({
-    catchSelector: jest.fn()
+    catchSelector: jest.fn(),
+    errorSelector: jest.fn(),
+    resultSelector: jest.fn(),
 }));
 
 // ACTIONS:
@@ -27,7 +28,7 @@ const payload = {};
 
 const ACTION = {
     payload,
-    type: CLEAR_ERR
+    type: ''
 };
 
 clearError.mockImplementation(() => ACTION);
@@ -90,7 +91,7 @@ describe('Poke container', () => {
         it('catchSelector should set message as prop', () => {
             expect(catchSelector).toHaveBeenCalledTimes(1);
             expect(catchSelector).toHaveBeenCalledWith(store);
-            expect(wrapper.prop('catchPoke')).toEqual(catchPoke);
+            expect(wrapper.prop('pokeCatch')).toEqual(catchPoke);
         });
         
         it('errorSelector should set message as prop', () => {
