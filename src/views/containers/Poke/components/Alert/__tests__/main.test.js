@@ -10,27 +10,27 @@ const ERROR = 'foo';
 
 describe('<Alert />', () => {
     
-    let alert;
+    let wrapper;
     
     beforeEach(() => {
-        alert = shallow(
+        wrapper = shallow(
             <Alert { ...props } />
         );
     });
 
     describe('render', () => {
         it('renders an alert component when there is an error', () => {
-            alert.setProps({
+            wrapper.setProps({
                 ...props,
                 error: ERROR
             });
-            const alertComponent = alert.find('Alert');
+            const alertComponent = wrapper.find('Alert');
             expect(alertComponent).toHaveLength(1);
         });
     });
 
     it('does not render with empty error', () => {
-        expect(alert.contains('Alert')).toBeFalsy();
+        expect(wrapper.contains('Alert')).toBeFalsy();
     });
 
 });

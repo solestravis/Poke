@@ -3,8 +3,6 @@ import Poke from '../main';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-const MESSAGE = 'message';
-
 const props = {
     findResults: jest.fn(),
     loadPokemonInfo: jest.fn()
