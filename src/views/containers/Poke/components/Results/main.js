@@ -14,4 +14,6 @@ Results.propTypes = {
     results: array
 };
 
+Results.displayName = 'Results';
+
 export default Results;

@@ -13,4 +13,6 @@ SearchInput.propTypes = {
     pokeCatch: array
 };
 
+SearchInput.displayName = 'SearchInput';
+
 export default SearchInput;

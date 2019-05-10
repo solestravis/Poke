@@ -35,4 +35,6 @@ List.propTypes = {
     pokeCatch: array
 };
 
+List.displayName = 'List';
+
 export default List;

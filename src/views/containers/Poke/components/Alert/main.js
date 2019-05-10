@@ -13,4 +13,6 @@ Alert.propTypes = {
     error: string
 };
 
+Alert.displayName = 'Alert';
+
 export default Alert;

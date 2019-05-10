@@ -52,27 +52,64 @@ describe('<Poke />', () => {
             expect(results).toHaveLength(1);
         });
 
-        it('should run _handleSubmit', () => {
+        it('should run _handleSubmit when key is pressed', () => {
             wrapper.setProps({
                 ...props
             });
-            const spy = jest.spyOn(wrapper.instance(), '_handleSubmit');
+            const mockHandleSubmit = jest.spyOn(wrapper.instance(), '_handleSubmit');
             const mockEvent = {
-                key: 'Enter',
+                key: 'foo',
                 target: {
                     value: 'test'
                 }
             };
             wrapper.instance().forceUpdate();
             wrapper.instance()._handleSubmit(mockEvent);
-            expect(spy).toHaveBeenCalled();
+            expect(mockHandleSubmit).toHaveBeenCalled();
         });
 
-        it('should run _handleChange', () => {
+        it('should not enter _handleSubmit if enter key is not pressed', () => {
             wrapper.setProps({
                 ...props
             });
-            const spy = jest.spyOn(wrapper.instance(), '_handleChange');
+            const mockHandleSubmit = jest.spyOn(wrapper.instance(), '_handleSubmit');
+            const value = 'TEST';
+            const mockEvent = {
+                key: 'foo',
+                target: {
+                    value
+                }
+            };
+            wrapper.instance().forceUpdate();
+            wrapper.instance()._handleSubmit(mockEvent);
+            expect(mockHandleSubmit).toHaveBeenCalled();
+            // Since if statements did not run:
+            expect(mockEvent.target.value).toEqual(value);
+        });
+
+        it('should enter _handleSubmit if enter key is pressed', () => {
+            wrapper.setProps({
+                ...props
+            });
+            const mockHandleSubmit = jest.spyOn(wrapper.instance(), '_handleSubmit');
+            const emptyValue = '';
+            const mockEvent = {
+                key: 'Enter',
+                target: {
+                    value: 'foo'
+                }
+            };
+            wrapper.instance().forceUpdate();
+            wrapper.instance()._handleSubmit(mockEvent);
+            expect(mockHandleSubmit).toHaveBeenCalled();
+            expect(mockEvent.target.value).toEqual(emptyValue);
+        });
+
+        it('should run _handleChange ', () => {
+            wrapper.setProps({
+                ...props
+            });
+            const mockHandleChange = jest.spyOn(wrapper.instance(), '_handleChange');
             const mockEvent = {
                 target: {
                     value: 'test'
@@ -80,7 +117,7 @@ describe('<Poke />', () => {
             };
             wrapper.instance().forceUpdate();
             wrapper.instance()._handleChange(mockEvent);
-            expect(spy).toHaveBeenCalled();
+            expect(mockHandleChange).toHaveBeenCalled();
         });
 
     });
